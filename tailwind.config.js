@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      lg: '1100px'
+    },
     extend: {
       fontFamily: {
         'roboto-flex': ['Roboto Flex', 'sans-serif'],
