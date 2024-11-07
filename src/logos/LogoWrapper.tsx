@@ -1,7 +1,4 @@
-interface logoWrapper extends React.SVGAttributes<SVGSVGElement> {
-  viewBox: string,
-  children: React.ReactNode
-}
+import { logoWrapper } from "../types"
 
 export default function LogoWrapper({
   viewBox,

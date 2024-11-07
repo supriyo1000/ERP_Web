@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { RxHamburgerMenu } from "react-icons/rx";
-
-type navbar = {
-	scrolled: boolean
-}
+import { RxHamburgerMenu } from "react-icons/rx"
+import { navbar } from '../types'
 
 export default function Navbar(props: navbar) {
 	const [optionsClicked, setOptionsClicked] = useState(false)
-
 	const toggleOptions = () => {
 		setOptionsClicked((prev) => !prev)
 	}
-
   const controls = useAnimation();
-
-  // Animate background color based on scroll position
   useEffect(() => {
     controls.start({
 			borderColor: props.scrolled ? '#808080ff' : '#80808000',
@@ -23,6 +16,10 @@ export default function Navbar(props: navbar) {
       transition: { duration: 0.2 },
     });
   }, [props.scrolled, controls]);
+
+	const scrollToSection = () => {
+		
+	}
 
   return (
     <motion.nav animate={controls} className="flex items-center justify-between fixed z-50 top-0 left-0 right-0 text-white px-8 py-4 select-none border-b-2">
@@ -39,11 +36,10 @@ export default function Navbar(props: navbar) {
 				GoShopping
 			</motion.a>
 			<div className="hidden lg:flex lg:items-center lg:gap-8 lg:px-8">
-				<div className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Home</div>
-				<div className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">About Us</div>
-				<div className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Our Products</div>
-				<div className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Latest Models</div>
-				<div className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Contact Us</div>
+				<div onClick={scrollToSection} className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Home</div>
+				<div onClick={scrollToSection} className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">About Us</div>
+				<div onClick={scrollToSection} className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Trusted Partners</div>
+				<div onClick={scrollToSection} className="text-xl py-2 hover:scale-110 transition-transform cursor-pointer">Contact Us</div>
 			</div>
 			<SignInBtn />
 			<div
@@ -55,8 +51,7 @@ export default function Navbar(props: navbar) {
 			<div className={`absolute -z-10 left-0 right-0 top-0 ${optionsClicked ? 'block' : 'hidden'}`}>
 				<div>Home</div>
 				<div>About Us</div>
-				<div>Our Products</div>
-				<div>Latest Models</div>
+				<div>Trusted Partners</div>
 				<div>Contact Us</div>
 			</div>
     </motion.nav>

@@ -6,9 +6,10 @@ import Adidas from "../logos/Brands/Adidas"
 import Apple from "../logos/Brands/Apple"
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
-import { useRef } from "react"
+import { forwardRef, useRef } from "react"
+import { emptyProps } from "../types"
 
-export default function TrustedBrands() {
+export default forwardRef<HTMLDivElement, emptyProps>(function TrustedBrands(props, ref) {
   // const ref = useRef<null | React.HTMLProps<HTMLHeadingElement>>(null)
   // const { scrollY, scrollYProgress } = useScroll({
   //   target: ref,
@@ -19,7 +20,7 @@ export default function TrustedBrands() {
   // })
 
   return (
-    <section className="min-h-screen flex items-center justify-center flex-col text-white gap-8 trusted-brand-section">
+    <section id='trusted' ref={ref} className="min-h-screen flex items-center justify-center flex-col text-white gap-8 trusted-brand-section">
       <h1  className="trusted-brand-section-header font-source-serif">Our Trusted Partners</h1>
       <div className="flex w-3/5 items-center gap-x-20 gap-y-12 justify-center flex-wrap">
         <motion.div
@@ -67,4 +68,4 @@ export default function TrustedBrands() {
       </div>
     </section>
   )
-}
+})

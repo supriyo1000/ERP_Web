@@ -1,12 +1,9 @@
 import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { BsArrowUp } from "react-icons/bs"
+import { scrollable } from "../types"
 
-type gototop = {
-  scrolled: boolean
-}
-
-export default function GoToTop(props: gototop) {
+export default function GoToTop(props: scrollable) {
   const controls = useAnimation()
   const goToTop = () => {
     window.scrollTo(0, 0)

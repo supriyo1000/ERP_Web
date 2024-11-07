@@ -1,11 +1,7 @@
 // import { motion, Variants } from 'framer-motion'
 import videosection from '/Finalized.mp4'
-import { useEffect, useState } from 'react'
-
-type messagesType = {
-	heading: string,
-	description: string
-}[]
+import { useEffect, useState, forwardRef } from 'react'
+import { emptyProps, messagesType } from '../types'
 
 const messages: messagesType = [
 	{
@@ -30,7 +26,7 @@ const messages: messagesType = [
 	}
 ]
 
-export default function VideoSection() {
+export default forwardRef<HTMLDivElement, emptyProps>(function VideoSection(props, ref) {
 	const [index, setIndex] = useState(0)
 
 	useEffect(() => {
@@ -44,25 +40,21 @@ export default function VideoSection() {
 	}, [index])
 
   return (
-		<section className='w-full h-screen relative flex items-end'>
+		<section id='main' className='w-full h-screen relative flex items-end' ref={ref}>
 			<video autoPlay loop muted playsInline src={videosection} className="absolute size-full z-[-1] object-cover" />
-			{/* <div className="pb-16 pl-16 w-3/5 h-8 flex"> */}
-				{
-					messages.map((obj, ind) => {
-						return (
-							// <div {(ind === index) ? } className='absolute text-slate-100 items-end w-3/5 pb-16 pl-16'>
-							<div
-								key={ind}
-								className={`absolute pb-16 pl-16 text-slate-100 w-3/5 video-description ${(ind === index) ? 'appear' : ''}`}
-								// className='absolute pb-16 pl-16 text-slate-100 w-3/5'
-							>
-								<h1 className='video-section-header font-noto-serif'>{obj.heading}</h1>
-								<p className='video-section-description'>{obj.description}</p>
-							</div>
-						)
-					})
-				}
-			{/* </div> */}
+			{
+				messages.map((obj, ind) => {
+					return (
+						<div
+							key={ind}
+							className={`absolute pb-16 pl-16 text-slate-100 w-3/5 video-description ${(ind === index) ? 'appear' : ''}`}
+						>
+							<h1 className='video-section-header font-noto-serif'>{obj.heading}</h1>
+							<p className='video-section-description'>{obj.description}</p>
+						</div>
+					)
+				})
+			}
 		</section>
   )
-}
+})
