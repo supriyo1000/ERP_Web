@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import VideoSection from "./VideoSection"
 import TrustedBrands from "./TrustedBrands"
 import GoToTop from "./GoToTop"
+import Footer from "./Footer"
 
 export default function App() {
 	const [scrolled, setScrolled] = useState(false)
@@ -18,11 +19,12 @@ export default function App() {
 
 	window.onscroll = handleScroll
   return (
-    <div className="relative">
+    <main className="relative">
       <Navbar scrolled={scrolled} />
       <VideoSection />
       <TrustedBrands />
       <GoToTop scrolled={scrolled} />
-    </div>
+      <Footer />
+    </main>
   )
 }
