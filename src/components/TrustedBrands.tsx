@@ -9,14 +9,14 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { useRef } from "react"
 
 export default function TrustedBrands() {
-  const ref = useRef<null | React.HTMLProps<HTMLHeadingElement>>(null)
-  const { scrollY, scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end end']
-  })
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest)
-  })
+  // const ref = useRef<null | React.HTMLProps<HTMLHeadingElement>>(null)
+  // const { scrollY, scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['start end', 'end end']
+  // })
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   console.log("Page scroll: ", latest)
+  // })
 
   return (
     <section className="min-h-screen flex items-center justify-center flex-col text-white gap-8 trusted-brand-section">
