@@ -7,7 +7,7 @@ export type messagesType = {
 
 export type navbar = {
   scrolled: boolean,
-  sectionRefs?: React.RefObject<HTMLDivElement>[]
+  sectionRefs: React.RefObject<HTMLDivElement>[]
 }
 
 export type scrollable = {
@@ -18,3 +18,8 @@ export interface logoWrapper extends React.SVGAttributes<SVGSVGElement> {
   viewBox: string,
   children: React.ReactNode
 }
+
+export type sectionsInfoType = {
+  name: string,
+  sectionComponent: React.ForwardRefExoticComponent<RefAttributes<HTMLDivElement>>
+}[]

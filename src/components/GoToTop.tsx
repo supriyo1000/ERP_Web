@@ -19,7 +19,7 @@ export default function GoToTop(props: scrollable) {
 
   return (
     <motion.div
-      className="fixed z-50 select-none opacity-0 cursor-pointer bottom-20 right-20 aspect-square text-white text-4xl bg-black border-white border-2 p-4 rounded-full"
+      className="fixed z-50 select-none opacity-0 cursor-pointer bottom-20 right-20 aspect-square text-white text-4xl bg-black border-white border-2 p-4 rounded-full before:content-['Go_to_top'] before:absolute before:-z-10 before:transition-all before:delay-0 before:hover:delay-1000 before:opacity-0 before:scale-0 before:hover:opacity-100 before:hover:scale-100 before:top-0 before:hover:-top-12 before:left-1/2 before:-translate-x-1/2 before:text-sm before:w-max before:px-2 before:py-1 before:bg-gray-900 before:border-2 before:border-gray-400"
       animate={controls}
       whileHover={{
         scale: 1.2,

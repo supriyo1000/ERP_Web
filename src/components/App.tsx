@@ -1,12 +1,9 @@
 import { useRef, useState } from "react"
 
 import Navbar from "./Navbar"
-import VideoSection from "./VideoSection"
-import AboutUs from "./AboutUs"
-import TrustedBrands from "./TrustedBrands"
-import ContactUs from "./ContactUs"
 import GoToTop from "./GoToTop"
 import Footer from "./Footer"
+import sectionsInfo from "../sectiondata"
 
 export default function App() {
 	const [scrolled, setScrolled] = useState(false)
@@ -17,7 +14,6 @@ export default function App() {
     } else {
       setScrolled(false);
     }
-		// console.log(scrolled)
   }
 
   const refs: React.RefObject<HTMLDivElement>[] = [
@@ -31,10 +27,11 @@ export default function App() {
   return (
     <main className="relative">
       <Navbar scrolled={scrolled} sectionRefs={refs} />
-      <VideoSection ref={refs[0]} />
-      <AboutUs ref={refs[1]} />
-      <TrustedBrands ref={refs[2]} />
-      <ContactUs ref={refs[3]} />
+      {
+        sectionsInfo.map((section, index) => {
+          return <section.sectionComponent key={index} ref={refs[index]} />
+        })
+      }
       <GoToTop scrolled={scrolled} />
       <Footer />
     </main>
