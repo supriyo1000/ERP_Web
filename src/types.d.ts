@@ -1,9 +1,11 @@
 export type emptyProps = {}
 
-export type messagesType = {
-	heading: string,
-	description: string
-}[]
+export type messageType = {
+  heading: string,
+  description: string
+}
+
+export type messagesType = messageType[]
 
 export type navbar = {
   scrolled: boolean,
