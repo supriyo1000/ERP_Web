@@ -29,7 +29,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function AboutUs(props, re
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["end end", "start start"]
+    offset: ["start start", "end end"]
   })
   const progress = useSpring(scrollYProgress, {
     stiffness: 200,
@@ -41,7 +41,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function AboutUs(props, re
       {/* This is the background */}
       <div id='background-about' className="sticky top-0 h-screen -z-50">
         <div className="w-1/2 h-full flex items-center justify-center">
-          <h1 className="font-source-serif font-bold text-[5vw]">
+          <h1 className="section-header">
             About Us
           </h1>
         </div>
@@ -106,11 +106,15 @@ function AboutCard(props: messageType) {
   // })
   return (
     // <div className="card-section h-screen border-2 flex items-center justify-center border-green-700">
-    <div className="card-section h-screen flex items-center justify-center">
-      <div className="card relative w-[200px] aspect-[2/3] flex items-center justify-center flex-col border-2 border-red-700">
-      {/* <div ref={ref} className="card relative w-[200px] aspect-[2/3] flex items-center justify-center flex-col"> */}
-        <h1 className="text-[3vw]">{props.heading}</h1>
-        <div>{props.description}</div>
+    <div className="card-section relative h-screen flex items-center justify-center">
+      {/* <div className="card relative w-[200px] aspect-[2/3] flex items-center justify-center flex-col border-2 border-red-700"> */}
+      <div
+        className="group/card relative size-max before:absolute after:absolute before:content-[''] after:content-[''] before:inset-0 after:inset-0 before:opacity-0 after:opacity-0 before:-z-20 after:-z-30 before:bg-sky-400 after:bg-sky-400 before:rounded-2xl after:rounded-2xl before:translate-x-0 before:translate-y-0 after:translate-x-0 after:translate-y-0 hover:before:-translate-x-8 hover:before:translate-y-8 hover:after:translate-x-8 hover:after:-translate-y-8 hover:before:opacity-100 hover:after:opacity-100 before:transition-all after:transition-all"
+      >
+        <div className="w-[200px] aspect-[2/3] flex items-center justify-center flex-col border-2 border-white rounded-2xl group-hover/card:scale-110 group-hover/card:text-black group-hover/card:bg-sky-200 group-hover/card:border-sky-200 transition-all">
+          <h1 className="text-[3vw] text-center">{props.heading}</h1>
+          <div className="text-center">{props.description}</div>
+        </div>
       </div>
     </div>
   )

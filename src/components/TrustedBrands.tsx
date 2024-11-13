@@ -21,7 +21,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function TrustedBrands(pro
 
   return (
     <section id='trusted' ref={ref} className="min-h-screen flex items-center justify-center flex-col text-white gap-8 trusted-brand-section">
-      <h1  className="trusted-brand-section-header font-source-serif">Our Trusted Partners</h1>
+      <h1 className="section-header">Our Trusted Partners</h1>
       <div className="flex w-3/5 items-center gap-x-20 gap-y-12 justify-center flex-wrap">
         <motion.div
           whileHover={{scale: 1.1}}

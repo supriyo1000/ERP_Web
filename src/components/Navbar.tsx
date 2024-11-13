@@ -38,7 +38,7 @@ export default function Navbar(props: navbar) {
 	})
 
 	return (
-		<motion.nav animate={controls} className="flex items-center justify-between fixed z-50 top-0 left-0 right-0 text-white px-8 py-4 select-none border-b-2">
+		<motion.nav animate={controls} className="flex items-center justify-between fixed z-[100] top-0 left-0 right-0 text-white px-8 py-4 select-none border-b-2">
 			<motion.a
 				href='/'
 				whileHover={{
