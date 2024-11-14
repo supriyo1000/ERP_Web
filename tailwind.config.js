@@ -16,7 +16,9 @@ export default {
         'texturina': ['Texturina', 'sans-serif']
       },
       colors: {
-        background: 'rgb(var(--background))'
+        background: 'rgba(var(--background))',
+        text: 'rgba(var(--text))',
+        'text-inversed': 'rgba(var(--text-inversed))'
       }
     },
   },
