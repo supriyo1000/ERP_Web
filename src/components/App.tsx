@@ -4,9 +4,11 @@ import Navbar from "./Navbar"
 import GoToTop from "./GoToTop"
 import Footer from "./Footer"
 import sectionsInfo from "../sectiondata"
+import { themeValues } from "../types"
+import { NavbarHeightProvider } from "../contexts/NavbarHeightContext"
 
 export default function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme'))
+  const [theme, setTheme] = useState<themeValues>(localStorage.getItem('theme') as themeValues)
   useEffect(() => {
     switch (theme) {
       case 'dark':
@@ -59,12 +61,14 @@ export default function App() {
 	window.onscroll = handleScroll
   return (
     <main className="relative">
-      <Navbar scrolled={scrolled} sectionRefs={refs} />
-      {
-        sectionsInfo.map((section, index) => {
-          return <section.sectionComponent key={index} ref={refs[index]} />
-        })
-      }
+      <Navbar scrolled={scrolled} sectionRefs={refs} theme={theme} toggleTheme={toggleTheme} />
+      <NavbarHeightProvider>
+        {
+          sectionsInfo.map((section, index) => {
+            return <section.sectionComponent key={index} ref={refs[index]} />
+          })
+        }
+      </NavbarHeightProvider>
       <GoToTop scrolled={scrolled} />
       <Footer />
     </main>

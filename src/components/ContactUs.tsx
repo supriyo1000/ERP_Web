@@ -9,7 +9,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function ContactUs(props, 
   const env = import.meta.env
   const defaultph = '+XX XXXXX XXXXX'
   return (
-    <section id='contact' className="min-h-screen text-white flex items-center justify-center flex-col text-center" ref={ref}>
+    <section id='contact' className="min-h-screen text-text flex items-center justify-center flex-col text-center" ref={ref}>
       <h1 className="section-header">Contact Us</h1>
       <div>
         <div className="text-lg *:font-source-serif mb-8">

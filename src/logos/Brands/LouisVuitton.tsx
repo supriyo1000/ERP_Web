@@ -4,7 +4,7 @@ export default function LouisVuitton() {
   return (
     <LogoWrapper viewBox="-31.05 -31.05 10164.6 1097.1">
       <g
-        className="fill-gray-400 group-hover/logo:fill-white transition-colors stroke-none"
+        className="fill-gray-400 group-hover/logo:fill-text transition-colors stroke-none"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="4"

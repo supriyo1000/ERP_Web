@@ -7,9 +7,13 @@ export type messageType = {
 
 export type messagesType = messageType[]
 
+export type themeValues = 'dark' | '' | null
+
 export type navbar = {
   scrolled: boolean,
-  sectionRefs: React.RefObject<HTMLDivElement>[]
+  sectionRefs: React.RefObject<HTMLDivElement>[],
+  theme: themeValues,
+  toggleTheme: () => void
 }
 
 export type scrollable = {
