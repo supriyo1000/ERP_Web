@@ -5,8 +5,8 @@ import Puma from "../logos/Brands/Puma"
 import Adidas from "../logos/Brands/Adidas"
 import Apple from "../logos/Brands/Apple"
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"
-import { forwardRef, useRef } from "react"
+import { motion } from "framer-motion"
+import { forwardRef } from "react"
 import { emptyProps } from "../types"
 
 export default forwardRef<HTMLDivElement, emptyProps>(function TrustedBrands(props, ref) {

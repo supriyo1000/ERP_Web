@@ -4,7 +4,7 @@ export default function AboutLanding() {
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     viewBox="0 0 500 500"
-		className="aspect-square size-1/2"
+		className="hidden md:block min-w-[200px] aspect-square size-1/2"
   >
     <path fill="none" d="M0 0h500v500H0z"></path>
     <g>

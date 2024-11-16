@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { RxHamburgerMenu } from "react-icons/rx"
 import { navbar, themeValues } from '../types'
 import sectionsInfo from '../sectiondata'
 
@@ -80,21 +79,22 @@ export default function Navbar(props: navbar) {
 				className='block lg:hidden text-2xl cursor-pointer hover:scale-110 transition-transform'
 				onClick={toggleOptions}
 			>
-				<Hamburger optionsClicked={optionsClicked} />
+				<Hamburger scrolled={props.scrolled} optionsClicked={optionsClicked} />
 			</div>
-			<MediumScreenOpts clicked={optionsClicked} sectionRefs={props.sectionRefs} theme={props.theme} setTheme={props.toggleTheme} signInFn={signInFn} />
+			<MediumScreenOpts clicked={optionsClicked} setClicked={toggleOptions} sectionRefs={props.sectionRefs} theme={props.theme} setTheme={props.toggleTheme} signInFn={signInFn} />
 		</motion.nav>
 	)
 }
 
 type hambrgrType = {
+	scrolled: boolean,
 	optionsClicked: boolean
 }
 
 function Hamburger(props: hambrgrType) {
 	return (
 		<svg id="hamburger" className={props.optionsClicked ? 'closed' : ''} width='1em' height='1em' viewBox="10 0 50 40">
-			<g stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+			<g className={(props.scrolled || props.optionsClicked) ? 'stroke-text' : 'stroke-white'} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
 				<path id="top-line" d="M10,10 L50,10 Z"></path>
 				<path id="middle-line" d="M10,20 L50,20 Z"></path>
 				<path id="bottom-line" d="M10,30 L50,30 Z"></path>
@@ -147,6 +147,7 @@ function ThemeToggler(props: toggler) {
 
 type msopts = {
 	clicked: boolean,
+	setClicked: () => void
 	sectionRefs: React.RefObject<HTMLDivElement>[],
 	theme: themeValues,
 	setTheme: () => void,
@@ -162,6 +163,7 @@ function MediumScreenOpts(props: msopts) {
 				props.sectionRefs[index].current?.scrollIntoView({
 					behavior: 'smooth'
 				})
+				props.setClicked()
 			}
 		}
 	})
