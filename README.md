@@ -1,50 +1,25 @@
 # GoShopping
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GoShopping is an e-commerce shopping app which is a minimal React project setup using Vite, a fast and efficient build tool. The project provides a starting point for building React applications with features like **Hot Module Replacement (HMR)** and a pre-configured ESLint setup.
 
-Currently, two official plugins are available:
+## Main Function Points
+- Minimal setup to get React working with Vite.
+- Includes HMR (Hot Module Replacement) for faster development.
+- Provides a pre-configured ESLint setup with type-aware lint rules.
+- Supports theme changing and responsiveness.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology Stack
+- React
+- Vite
+- TypeScript
+- CSS (Tailwind CSS)
+- ESLint
+- Framer Motion
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Instructions for deploying the app in your local machine
+1. Open terminal in the desired directory and execute `git clone https://github.com/SwastikSarkar001/GoShopping.git`
+2. Set up `.env.local` file in the directory and ask the owner of the repository for the environment variables.
+3. Run `npm i` or `npm install` to install all node modules required for the app.
+4. Run `npm run dev` to run the app in development mode (Default port is 5173).
+5. Run `npm run build` to build the app.
+6. Run `npm run preview` to run the built app in production mode (Default port is 4173).
