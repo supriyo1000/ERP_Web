@@ -17,7 +17,7 @@ GoShopping is an e-commerce shopping app which is a minimal React project setup 
 - Framer Motion
 
 ## Instructions for deploying the app in your local machine
-1. Open terminal in the desired directory and execute `git clone https://github.com/SwastikSarkar001/GoShopping.git`
+1. Open terminal in the desired directory and execute `git clone https://github.com/SwastikSarkar001/GoShopping.git` to download all the files and folders in the directory.
 2. Set up `.env.local` file in the directory and ask the owner of the repository for the environment variables.
 3. Run `npm i` or `npm install` to install all node modules required for the app.
 4. Run `npm run dev` to run the app in development mode (Default port is 5173).
