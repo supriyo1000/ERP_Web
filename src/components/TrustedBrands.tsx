@@ -10,58 +10,49 @@ import { forwardRef } from "react"
 import { emptyProps } from "../types"
 
 export default forwardRef<HTMLDivElement, emptyProps>(function TrustedBrands(props, ref) {
-  // const ref = useRef<null | React.HTMLProps<HTMLHeadingElement>>(null)
-  // const { scrollY, scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ['start end', 'end end']
-  // })
-  // useMotionValueEvent(scrollY, "change", (latest) => {
-  //   console.log("Page scroll: ", latest)
-  // })
-
   return (
     <section id='trusted' ref={ref} className="min-h-screen flex items-center justify-center flex-col text-text transition-colors gap-8 trusted-brand-section">
-      <h1 className="section-header">Our Trusted Partners</h1>
-      <div className="flex w-3/5 items-center gap-x-20 gap-y-12 justify-center flex-wrap">
+      <h1 className="section-header text-center px-8">Our Trusted Partners</h1>
+      <div className="flex w-3/5 items-center justify-center gap-12 flex-wrap">
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-36"
+          className="min-w-[calc((36_/_28)_*_5rem)] w-[calc((36_/_28)_*_16vw)] max-w-36"
         >
           <Gucci />
         </motion.div>
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-40"
+          className="min-w-[calc((40_/_28)_*_5rem)] w-[calc((40_/_28)_*_16vw)] max-w-40"
         >
           <LouisVuitton />
         </motion.div>
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-28"
+          className="min-w-[calc((28_/_28)_*_5rem)] w-[calc((28_/_28)_*_16vw)] max-w-28"
         >
           <Zara />
         </motion.div>
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-32"
+          className="min-w-[calc((32_/_28)_*_5rem)] w-[calc((32_/_28)_*_16vw)] max-w-32"
         >
           <Puma />
         </motion.div>
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-28"
+          className="min-w-[calc((28_/_28)_*_5rem)] w-[calc((28_/_28)_*_16vw)] max-w-28"
         >
           <Adidas />
         </motion.div>
         <motion.div
           whileHover={{scale: 1.1}}
           transition={{type: 'ease', stiffness: 250, duration: 0.2}}
-          className="w-16"
+          className="min-w-[calc((16_/_28)_*_5rem)] w-[calc((16_/_28)_*_16vw)] max-w-16"
         >
           <Apple />
         </motion.div>

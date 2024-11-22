@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 import { emptyProps } from "../types"
-import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6"
+// import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6"
 import { motion } from "framer-motion"
 import { formatPhoneNumberIntl, isValidPhoneNumber } from "react-phone-number-input"
 import * as EmailValidator from 'email-validator'
@@ -11,8 +11,8 @@ export default forwardRef<HTMLDivElement, emptyProps>(function ContactUs(props, 
   return (
     <section id='contact' className="min-h-screen text-text flex items-center justify-center flex-col text-center" ref={ref}>
       <h1 className="section-header">Contact Us</h1>
-      <div>
-        <div className="text-lg *:font-source-serif mb-8">
+      <div className="section-body">
+        <div className="*:font-source-serif mb-8">
           <p>Need any help or support? Don't worry</p>
           <p>We are always there for you 24x7</p>
         </div>
@@ -48,9 +48,12 @@ export default forwardRef<HTMLDivElement, emptyProps>(function ContactUs(props, 
             <div>WhatsApp</div><div>{isValidPhoneNumber(env.VITE_WHATSAPP_NUMBER ?? '') ? formatPhoneNumberIntl(env.VITE_WHATSAPP_NUMBER ?? '') : defaultph}</div>
           </motion.a>
         </div>
-        <div className="mt-7">
+
+        { /* Uncomment when there will be social media platform */ }
+
+        {/* <div className="mt-7">
           <p className="font-source-serif mb-1">Also you can connect with us at:</p>
-          <div className="flex items-center gap-4 *:flex *:items-center *:gap-1">
+          <div className="flex items-center flex-col md:flex-row gap-1 md:gap-4 *:flex *:items-center *:gap-1">
             <motion.a
               className={(env.VITE_FACEBOOK_PROFILE === undefined || env.VITE_FACEBOOK_PROFILE.trim() === '') ? 'pointer-events-none' : ''}
               whileHover={{
@@ -82,7 +85,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function ContactUs(props, 
               <FaXTwitter />/ {env.VITE_X_PROFILE ?? '-handle'}
             </motion.a>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

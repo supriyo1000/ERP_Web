@@ -1,28 +1,19 @@
-// import { motion, Variants } from 'framer-motion'
 import videosection from '/Finalized.mp4'
 import { useEffect, useState, forwardRef } from 'react'
 import { emptyProps, messagesType } from '../types'
 
 const messages: messagesType = [
 	{
-		heading: 'Heading 1',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, praesentium iusto blanditiis rerum aspernatur molestiae incidunt laborum corrupti adipisci nesciunt.'
+		heading: 'Your All-in-One Business Solution',
+		description: 'Stay ahead with eazzyBizz – the all-in-one solution for seamless business resource management.'
 	},
 	{
-		heading: 'Heading 2',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, praesentium iusto blanditiis rerum aspernatur molestiae incidunt laborum corrupti adipisci nesciunt.'
+		heading: 'Smart Tools for Smarter Businesses',
+		description: 'Revolutionize the way you manage your business with eazzyBizz, your partner in growth and efficiency.'
 	},
 	{
-		heading: 'Heading 3',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, praesentium iusto blanditiis rerum aspernatur molestiae incidunt laborum corrupti adipisci nesciunt.'
-	},
-	{
-		heading: 'Heading 4',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, praesentium iusto blanditiis rerum aspernatur molestiae incidunt laborum corrupti adipisci nesciunt.'
-	},
-	{
-		heading: 'Heading 5',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, praesentium iusto blanditiis rerum aspernatur molestiae incidunt laborum corrupti adipisci nesciunt.'
+		heading: 'Efficiency at Your Fingertips',
+		description: 'Simplify complex business processes with eazzyBizz and drive your success with ease.'
 	}
 ]
 
@@ -47,7 +38,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function VideoSection(prop
 					return (
 						<div
 							key={ind}
-							className={`absolute pb-16 pl-16 text-slate-100 w-3/5 video-description ${(ind === index) ? 'appear' : ''}`}
+							className={`absolute pb-4 px-4 md:pb-8 md:px-8 lg:pb-16 lg:pl-16 text-slate-100 md:w-3/5 video-description ${(ind === index) ? 'appear' : ''}`}
 						>
 							<h1 className='video-section-header font-noto-serif'>{obj.heading}</h1>
 							<p className='video-section-description'>{obj.description}</p>

@@ -6,25 +6,29 @@ import { emptyProps, messagesType, messageType } from "../types"
 
 const details: messagesType = [
   {
-    heading: "Heading 1",
-    description: "Description 1"
+    heading: "Who We Are",
+    description: "eazzyBizz is a cutting-edge enterprise resource platform designed to simplify and streamline your business operations."
   },
   {
-    heading: "Heading 2",
-    description: "Description 2"
+    heading: "Our Mission",
+    description: "We aim to empower businesses by providing intuitive tools that enhance productivity, efficiency, and growth."
   },
   {
-    heading: "Heading 3",
-    description: "Description 3"
+    heading: "What We Do",
+    description: "We offer an all-in-one solution to help businesses manage resources, optimize workflows, and drive success."
   },
   {
-    heading: "Heading 4",
-    description: "Description 4"
+    heading: "Our Vision",
+    description: "To be the leading platform that helps businesses of all sizes thrive by making operations smarter, faster, and simpler."
   },
   {
-    heading: "Heading 5",
-    description: "Description 5"
+    heading: "Why Choose Us?",
+    description: "eazzyBizz combines innovation and simplicity to provide a seamless experience that boosts your business performance."
   },
+  {
+    heading: "Our Values",
+    description: "At eazzyBizz, we prioritize innovation, reliability, and customer success, ensuring that your business can grow with confidence."
+  }
 ]
 
 export default forwardRef<HTMLDivElement, emptyProps>(function AboutUs(props, ref) {
@@ -40,7 +44,14 @@ export default forwardRef<HTMLDivElement, emptyProps>(function AboutUs(props, re
     restDelta: 0.001
   })
   return (
-    <section id='about' ref={ref} style={{height: `calc(${details.length} * 100vh)`}} className="relative text-text">
+    <section
+      id='about'
+      ref={ref}
+      style={{
+        height: `calc(${details.length} * 100vh)`,
+      }}
+      className="relative text-text"
+    >
       {/* This is the background */}
       <div id='background-about' className="sticky top-0 h-screen -z-50">
         <div style={{paddingTop: navbarHeight+'px'}} className="hidden w-1/2 h-full md:flex flex-col items-center justify-center">
@@ -87,9 +98,12 @@ export default forwardRef<HTMLDivElement, emptyProps>(function AboutUs(props, re
       <div ref={sectionRef} className="hidden md:block absolute inset-y-[50vh] left-1/2 -translate-x-1/2 w-1 rounded-full bg-text/20 z-50"></div>
 
       {/* This is the details */}
-      <div id='details-about' className="absolute inset-0 min-h-screen flex flex-col md:flex-row justify-center md:justify-end">
-        <h1 className="block md:hidden section-header">About Us</h1>
-        <div className="md:w-1/2">
+      <div id='details-about' className="absolute inset-0 min-h-screen flex flex-col md:flex-row justify-between items-center md:justify-end">
+        <h1 className="block md:hidden section-header" style={{paddingTop: navbarHeight+48+'px'}}>About Us</h1>
+        <div
+          // ref={cardsSecRef}
+          className="md:w-1/2 flex md:block justify-around flex-col flex-grow md:flex-grow-0"
+        >
           {
             details.map((aboutdata, index) => {
               return (
@@ -118,13 +132,13 @@ function AboutCard(props: messageType) {
     }))
   }, [scrollYProgress]);
   return (
-    <div className={`card-section relative h-screen flex items-center justify-center`}>
+    <div className={`card-section relative h-max md:h-screen flex items-center justify-center`}>
       <div ref={ref}
-        className={`relative w-[25vw] max-w-[200px] aspect-[2/3] before:absolute after:absolute before:content-[''] after:content-[''] before:inset-0 after:inset-0 before:-z-20 after:-z-30 before:bg-sky-400 after:bg-sky-400 before:rounded-2xl after:rounded-2xl before:transition-all after:transition-all ${isCentered ? 'inview' : ''}`}
+        className={`relative min-w-[150px] w-[25vw] max-w-[200px] before:absolute after:absolute before:content-[''] after:content-[''] before:inset-0 after:inset-0 before:-z-20 after:-z-30 before:bg-sky-400 after:bg-sky-400 before:rounded-2xl after:rounded-2xl before:transition-all after:transition-all ${isCentered ? 'inview' : ''}`}
       >
-        <div className="size-full bg-background flex items-center justify-center flex-col border-2 border-text rounded-2xl transition-all">
-          <h1 className="text-[3vw] text-center">{props.heading}</h1>
-          <div className="text-center">{props.description}</div>
+        <div className="size-full p-4 gap-4 bg-background flex items-center justify-center flex-col border-2 border-text rounded-2xl transition-all">
+          <h1 className="text-xl font-texturina md:text-3xl text-center font-bold">{props.heading}</h1>
+          <div className="text-sm md:text-lg text-center italic">{props.description}</div>
         </div>
       </div>
     </div>

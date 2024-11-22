@@ -54,7 +54,7 @@ export default function Navbar(props: navbar) {
 				}}
 				className="font-source-serif text-4xl font-bold"
 			>
-				GoShopping
+				eazzyBizz
 			</motion.a>
 			<div className="hidden lg:flex lg:items-center lg:gap-8 lg:px-8">
 				{
