@@ -2,19 +2,23 @@ import { lazy } from 'react'
 
 const HomePage = lazy(() => import('./Landing Page/HomePage'))
 const Features = lazy(() => import('./Features/Features'))
+const Feature = lazy(() => import('./Features/Feature'))
 const InvalidPage = lazy(() => import('./InvalidPage'))
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ThemeProvider from "../contexts/ThemeContext"
 
 const router = createBrowserRouter([{
-    path: '/',
-    element: <HomePage />,
-    errorElement: <InvalidPage />
-  }, {
-    path: '/features',
-    element: <Features />
-  }
+      path: '/',
+      element: <HomePage />,
+      errorElement: <InvalidPage />
+    }, {
+      path: '/features',
+      element: <Features />
+    }, {
+      path: '/features/:featureID',
+      element: <Feature />
+    }
   ], {
     future: {
       v7_fetcherPersist: true,
