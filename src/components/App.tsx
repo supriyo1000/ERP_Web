@@ -1,62 +1,35 @@
-import { useRef, useState } from "react"
+import { lazy } from 'react'
 
-import Navbar from "./Navbar"
-import GoToTop from "./GoToTop"
-import Footer from "./Footer"
-import sectionsInfo from "../sectiondata"
-// import { themeValues } from "../types"
-import { NavbarHeightProvider } from "../contexts/NavbarHeightContext"
+const HomePage = lazy(() => import('./Landing Page/HomePage'))
+const Features = lazy(() => import('./Features/Features'))
+const InvalidPage = lazy(() => import('./InvalidPage'))
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ThemeProvider from "../contexts/ThemeContext"
 
-export default function App() {
-  
-  return (
-    <ThemeProvider>
-      {/* <Router>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='*' element={<Navigate to='/' />}/>
-        </Routes>
-      </Router> */}
-      <HomePage />
-    </ThemeProvider>
-  )
-}
-
-function HomePage() {
-  const [scrolled, setScrolled] = useState(false)
-  const handleScroll = () => {
-    const scrollThreshold = window.innerHeight * 0.15; // 15% of viewport height
-    if (window.scrollY > scrollThreshold) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
+const router = createBrowserRouter([{
+    path: '/',
+    element: <HomePage />,
+    errorElement: <InvalidPage />
+  }, {
+    path: '/features',
+    element: <Features />
+  }
+  ], {
+    future: {
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_relativeSplatPath: true,
+      v7_skipActionErrorRevalidation: true,
     }
   }
+)
 
-  const refs: React.RefObject<HTMLDivElement>[] = [
-    useRef<HTMLDivElement>(null),
-    useRef<HTMLDivElement>(null),
-    useRef<HTMLDivElement>(null),
-    useRef<HTMLDivElement>(null)
-  ]
-
-	window.onscroll = handleScroll
-
+export default function App() {
   return (
-    <main className="relative">
-      <Navbar scrolled={scrolled} sectionRefs={refs} />
-      <NavbarHeightProvider>
-        {
-          sectionsInfo.map((section, index) => {
-            return <section.sectionComponent key={index} ref={refs[index]} />
-          })
-        }
-      </NavbarHeightProvider>
-      <GoToTop scrolled={scrolled} />
-      <Footer />
-    </main>
+    <ThemeProvider>
+      <RouterProvider router={router} future={{v7_startTransition: true}} />
+    </ThemeProvider>
   )
 }

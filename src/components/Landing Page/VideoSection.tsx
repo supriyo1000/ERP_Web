@@ -1,6 +1,6 @@
 import videosection from '/Finalized.mp4'
 import { useEffect, useState, forwardRef } from 'react'
-import { emptyProps, messagesType } from '../types'
+import { emptyProps, messagesType } from '../../types'
 
 const messages: messagesType = [
 	{

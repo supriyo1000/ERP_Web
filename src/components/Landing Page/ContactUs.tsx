@@ -1,5 +1,5 @@
 import { forwardRef } from "react"
-import { emptyProps } from "../types"
+import { emptyProps } from "../../types"
 // import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6"
 import { motion } from "framer-motion"
 import { formatPhoneNumberIntl, isValidPhoneNumber } from "react-phone-number-input"

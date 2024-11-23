@@ -154,4 +154,8 @@
     .card-section>.inview::after {
         @apply translate-x-8 -translate-y-8 opacity-100;
     }
+
+    .feature-grid {
+        @apply aspect-square w-full bg-cyan-500;
+    }
 }

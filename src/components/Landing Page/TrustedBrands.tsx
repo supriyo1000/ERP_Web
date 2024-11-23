@@ -1,13 +1,13 @@
-import Gucci from "../logos/Brands/Gucci"
-import LouisVuitton from "../logos/Brands/LouisVuitton"
-import Zara from "../logos/Brands/Zara"
-import Puma from "../logos/Brands/Puma"
-import Adidas from "../logos/Brands/Adidas"
-import Apple from "../logos/Brands/Apple"
+import Gucci from "./logos/Brands/Gucci"
+import LouisVuitton from "./logos/Brands/LouisVuitton"
+import Zara from "./logos/Brands/Zara"
+import Puma from "./logos/Brands/Puma"
+import Adidas from "./logos/Brands/Adidas"
+import Apple from "./logos/Brands/Apple"
 
 import { motion } from "framer-motion"
 import { forwardRef } from "react"
-import { emptyProps } from "../types"
+import { emptyProps } from "../../types"
 
 export default forwardRef<HTMLDivElement, emptyProps>(function TrustedBrands(props, ref) {
   return (

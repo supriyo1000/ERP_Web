@@ -1,10 +1,10 @@
 import { lazy } from 'react'
 
-const VideoSection = lazy(() => import('./components/VideoSection'))
-const AboutUs = lazy(() => import('./components/AboutUs'))
-// const TrustedBrands = lazy(() => import('./components/TrustedBrands'))
-const ContactUs = lazy(() => import('./components/ContactUs'))
-import { sectionsInfoType } from "./types"
+const VideoSection = lazy(() => import('./VideoSection'))
+const AboutUs = lazy(() => import('./AboutUs'))
+// const TrustedBrands = lazy(() => import('./TrustedBrands'))
+const ContactUs = lazy(() => import('./ContactUs'))
+import { sectionsInfoType } from "../../types"
 
 /** IMPORT ALL SECTIONS OF THE WEBSITE HERE ONLY! (EXCLUDING NAVBAR AND OTHER FUNCTIONAL COMPONENTS) */
 const sectionsInfo: sectionsInfoType = [{

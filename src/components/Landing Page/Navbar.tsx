@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { navbar, themeValues } from '../types'
-import sectionsInfo from '../sectiondata'
-import { large } from '../../windowSizes'
-import { useTheme } from '../contexts/ThemeContext'
+import { navbar } from '../../types'
+import sectionsInfo from './sectiondata'
+import { large } from '../../../windowSizes'
+import { useTheme } from '../../contexts/ThemeContext'
+import { Link } from 'react-router-dom'
 
 export default function Navbar(props: navbar) {
-	const context = useTheme()
+	const { theme } = useTheme()
 
 	/* Tracking options box on different screens */
 	const [optionsClicked, setOptionsClicked] = useState(false)  // By default it is hidden
@@ -21,10 +22,10 @@ export default function Navbar(props: navbar) {
 	useEffect(() => {
 		controls.start({
 			borderColor: (props.scrolled || optionsClicked) ? '#808080ff' : '#80808000',
-			backgroundColor: (context.theme === 'dark') ? (props.scrolled || optionsClicked) ? '#030711ff' : '#03071100' : (props.scrolled || optionsClicked) ? '#fcf8eeff' : '#fcf8ee00',
+			backgroundColor: (theme === 'dark') ? (props.scrolled || optionsClicked) ? '#030711ff' : '#03071100' : (props.scrolled || optionsClicked) ? '#fcf8eeff' : '#fcf8ee00',
 			transition: { duration: 0.2 },
 		});
-	}, [props.scrolled, optionsClicked, controls, context.theme])
+	}, [props.scrolled, optionsClicked, controls, theme])
 
 	/* Scroll to the element */
 	const largeScreenRefs: React.RefObject<HTMLDivElement>[] = Array.from({ length: sectionsInfo.length }, () => useRef<HTMLDivElement>(null))
@@ -41,15 +42,14 @@ export default function Navbar(props: navbar) {
 	})
 
 	/* On clicking sign in button this function will trigger */
-	const signInFn = () => {
+	const registerFn = () => {
 		// Write code here
 		console.log('Hello everybody!')
 	}
 
 	return (
-		<motion.nav id='navbar' animate={controls} className={`flex transition-colors items-center justify-between fixed z-[100] top-0 left-0 right-0 ${(props.scrolled || optionsClicked) ? 'text-text' : 'text-white'} px-8 py-4 select-none border-b-2`}>
-			<motion.a
-				href='/'
+		<motion.nav id='navbar' animate={controls} className={`flex transition-colors items-center justify-between fixed z-[100] top-0 left-0 right-0 ${(props.scrolled || optionsClicked) ? 'text-text' : 'text-white'} px-8 py-4 select-none border-b-2 border-transparent`}>
+			<motion.div
 				whileHover={{
 					scale: 1.05,
 				}}
@@ -58,8 +58,10 @@ export default function Navbar(props: navbar) {
 				}}
 				className="font-source-serif text-4xl font-bold"
 			>
-				eazzyBizz
-			</motion.a>
+				<Link to='/' className='font-source-serif text-4xl font-bold'>
+					eazzyBizz
+				</Link>
+			</motion.div>
 			<div className="hidden lg:flex lg:items-center lg:gap-8 lg:px-8 lg:ml-auto">
 				{
 					sectionsInfo.map((section, index) => {
@@ -77,15 +79,15 @@ export default function Navbar(props: navbar) {
 					})
 				}
 			</div>
-			<ThemeToggler theme={context.theme} toggleFn={context.toggleTheme} />
-			<RegisterBtn signInFn={signInFn} />
+			<ThemeToggler />
+			<RegisterBtn registerFn={registerFn} />
 			<div
 				className='block lg:hidden text-2xl cursor-pointer hover:scale-110 transition-transform'
 				onClick={toggleOptions}
 			>
 				<Hamburger scrolled={props.scrolled} optionsClicked={optionsClicked} />
 			</div>
-			<MediumScreenOpts clicked={optionsClicked} setClicked={toggleOptions} sectionRefs={props.sectionRefs} theme={context.theme} setTheme={context.toggleTheme} registerFn={signInFn} />
+			<MediumScreenOpts clicked={optionsClicked} setClicked={toggleOptions} sectionRefs={props.sectionRefs} />
 		</motion.nav>
 	)
 }
@@ -108,41 +110,38 @@ function Hamburger(props: hambrgrType) {
 }
 
 type registerProp = {
-	signInFn: () => void
+	registerFn: () => void
 }
 
 function RegisterBtn(props: registerProp) {
 	return (
 		<motion.button
 			whileTap={{ scale: 0.9 }}
-			className={`hidden md:block px-4 py-2 lg:p-4 lg:ml-0 mx-[5%] lg:mr-0 bg-slate-100 text-black border-black border-[1px] border-solid ${`hover:bg-black hover:text-white hover:border-white`} transition-colors duration-300`}
-			onClick={props.signInFn}
+			onClick={props.registerFn}
 		>
-			Register Now
+			<Link to='/features' className='hidden md:block px-4 py-2 lg:p-4 lg:ml-0 mx-[5%] lg:mr-0 bg-slate-100 text-black border-black border-[1px] border-solid hover:bg-black hover:text-white hover:border-white transition-colors duration-300 capitalize'>
+				Get Started
+			</Link>
 		</motion.button>
 	)
 }
 
-type toggler = {
-	theme: themeValues,
-	toggleFn: () => void,
-}
-
-function ThemeToggler(props: toggler) {
+function ThemeToggler() {
 	const toggleRef = useRef<HTMLInputElement>(null)
+	const { theme, toggleTheme } = useTheme()
 	useEffect(() => {
-		if (props.theme === 'dark') {
+		if (theme === 'dark') {
 			if (toggleRef.current !== null) toggleRef.current.checked = true
 		}
 		else {
 			if (toggleRef.current !== null) toggleRef.current.checked = false
 		}
-	}, [props.theme])
+	}, [theme])
 	return (
 		<div className="checkbox-wrapper relative rounded-[20px] h-max group/changer hidden md:block ml-auto lg:mr-[5%]">
-			<div className='absolute w-max opacity-0 pointer-events-none text-text bg-background border-2 border-text py-1 px-2 top-0 scale-0 left-1/2 -translate-x-1/2 text-sm transition-all delay-0 group-hover/changer:top-12 group-hover/changer:scale-100 group-hover/changer:delay-500 group-hover/changer:opacity-100'>Switch to {(props.theme === 'dark') ? 'light' : 'dark'} mode</div>
+			<div className='absolute w-max opacity-0 pointer-events-none text-text bg-background border-2 border-text py-1 px-2 top-0 scale-0 left-1/2 -translate-x-1/2 text-sm transition-all delay-0 group-hover/changer:top-12 group-hover/changer:scale-100 group-hover/changer:delay-500 group-hover/changer:opacity-100'>Switch to {(theme === 'dark') ? 'light' : 'dark'} mode</div>
 			<label className="switch">
-				<input ref={toggleRef} type="checkbox" onClick={props.toggleFn} />
+				<input ref={toggleRef} type="checkbox" onClick={toggleTheme} />
 				<span className="slider" />
 			</label>
 		</div>
@@ -153,12 +152,10 @@ type msopts = {
 	clicked: boolean,
 	setClicked: () => void
 	sectionRefs: React.RefObject<HTMLDivElement>[],
-	theme: themeValues,
-	setTheme: () => void,
-	registerFn: () => void
 }
 
 function MediumScreenOpts(props: msopts) {
+	const { theme, toggleTheme } = useTheme()
 	const mediumScreenRefs: React.RefObject<HTMLDivElement>[] = Array.from({ length: sectionsInfo.length }, () => useRef<HTMLDivElement>(null))
 
 	mediumScreenRefs.forEach((ref, index) => {
@@ -173,12 +170,7 @@ function MediumScreenOpts(props: msopts) {
 	})
 
 	const setTheme = () => {
-		props.setTheme()
-		props.setClicked()
-	}
-
-	const registerFn = () => {
-		props.registerFn()
+		toggleTheme()
 		props.setClicked()
 	}
 
@@ -208,18 +200,19 @@ function MediumScreenOpts(props: msopts) {
 			>
 				<div className='flex items-center overflow-hidden'>
 					<div className='-translate-x-full mx-0 transition-all group-hover/medopts:translate-x-0 group-hover/medopts:mx-4 opacity-0 group-hover/medopts:opacity-100'>→</div>
-					<div className=''>Switch to {(props.theme === 'dark') ? 'light' : 'dark'} mode</div>
+					<div className=''>Switch to {(theme === 'dark') ? 'light' : 'dark'} mode</div>
 				</div>
 			</motion.div>
 			<motion.div
 				whileTap={{scale: 0.9}}
-				className='pr-4 transition-all text-lg group/medopts flex md:hidden items-center overflow-hidden cursor-pointer'
-				onClick={registerFn}
+				onClick={props.setClicked}
 			>
-				<div className='flex items-center overflow-hidden'>
-					<div className='-translate-x-full mx-0 transition-all group-hover/medopts:translate-x-0 group-hover/medopts:mx-4 opacity-0 group-hover/medopts:opacity-100'>→</div>
-					<div className=''>Register Now</div>
-				</div>
+				<Link to='/features' className='pr-4 transition-all text-lg group/medopts flex md:hidden items-center overflow-hidden cursor-pointer'>
+					<div className='flex items-center overflow-hidden'>
+						<div className='-translate-x-full mx-0 transition-all group-hover/medopts:translate-x-0 group-hover/medopts:mx-4 opacity-0 group-hover/medopts:opacity-100'>→</div>
+						<div className='capitalize'>Get Started</div>
+					</div>
+				</Link>
 			</motion.div>
 		</div>
 	)

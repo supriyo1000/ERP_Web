@@ -1,8 +1,8 @@
-import AboutLanding from "../logos/AboutLanding"
-import { useNavbarHeight } from '../contexts/NavbarHeightContext'
+import AboutLanding from "./logos/AboutLanding"
+import { useNavbarHeight } from '../../contexts/NavbarHeightContext'
 import { forwardRef, useEffect, useRef, useState } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
-import { emptyProps, messagesType, messageType } from "../types"
+import { emptyProps, messagesType, messageType } from "../../types"
 
 const details: messagesType = [
   {
