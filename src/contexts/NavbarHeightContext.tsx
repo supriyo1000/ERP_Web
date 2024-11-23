@@ -1,5 +1,5 @@
 // context/NavbarHeightContext.tsx
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 type NavbarHeightContextType = {
   height: number;

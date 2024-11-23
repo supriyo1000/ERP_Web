@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import { small, medium, large } from './windowSizes'
+
 export default {
   content: [
     "./index.html",
@@ -6,9 +8,9 @@ export default {
   ],
   theme: {
     screens: {
-      sm: '400px',
-      md: '650px',
-      lg: '1100px'
+      sm: small.valInPx,
+      md: medium.valInPx,
+      lg: large.valInPx
     },
     extend: {
       fontFamily: {

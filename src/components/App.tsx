@@ -1,47 +1,32 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState } from "react"
 
 import Navbar from "./Navbar"
 import GoToTop from "./GoToTop"
 import Footer from "./Footer"
 import sectionsInfo from "../sectiondata"
-import { themeValues } from "../types"
+// import { themeValues } from "../types"
 import { NavbarHeightProvider } from "../contexts/NavbarHeightContext"
 
-export default function App() {
-  const [theme, setTheme] = useState<themeValues>(localStorage.getItem('theme') as themeValues)
-  useEffect(() => {
-    switch (theme) {
-      case 'dark':
-        if (theme !== null) document.body.classList.add(theme)
-        break
-      case '':
-        break
-      default:
-        if (window.matchMedia("prefers-color-scheme: dark")) {
-          document.body.classList.add('dark')
-          localStorage.setItem('theme', 'dark')
-          setTheme('dark')
-        }
-        else {
-          localStorage.setItem('theme', '')
-          setTheme('')
-        }
-    }
-  }, [])
-  const toggleTheme = () => {
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('dark')
-      localStorage.setItem('theme', '')
-      setTheme('')
-    }
-    else {
-      document.body.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-      setTheme('dark')
-    }
-  }
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import ThemeProvider from "../contexts/ThemeContext"
 
-	const [scrolled, setScrolled] = useState(false)
+export default function App() {
+  
+  return (
+    <ThemeProvider>
+      {/* <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='*' element={<Navigate to='/' />}/>
+        </Routes>
+      </Router> */}
+      <HomePage />
+    </ThemeProvider>
+  )
+}
+
+function HomePage() {
+  const [scrolled, setScrolled] = useState(false)
   const handleScroll = () => {
     const scrollThreshold = window.innerHeight * 0.15; // 15% of viewport height
     if (window.scrollY > scrollThreshold) {
@@ -59,9 +44,10 @@ export default function App() {
   ]
 
 	window.onscroll = handleScroll
+
   return (
     <main className="relative">
-      <Navbar scrolled={scrolled} sectionRefs={refs} theme={theme} toggleTheme={toggleTheme} />
+      <Navbar scrolled={scrolled} sectionRefs={refs} />
       <NavbarHeightProvider>
         {
           sectionsInfo.map((section, index) => {

@@ -11,9 +11,7 @@ export type themeValues = 'dark' | '' | null
 
 export type navbar = {
   scrolled: boolean,
-  sectionRefs: React.RefObject<HTMLDivElement>[],
-  theme: themeValues,
-  toggleTheme: () => void
+  sectionRefs: React.RefObject<HTMLDivElement>[]
 }
 
 export type scrollable = {
@@ -29,3 +27,8 @@ export type sectionsInfoType = {
   name: string,
   sectionComponent: React.ForwardRefExoticComponent<RefAttributes<HTMLDivElement>>
 }[]
+
+export type windowSizesType = {
+  value: number,
+  valInPx: string
+}
