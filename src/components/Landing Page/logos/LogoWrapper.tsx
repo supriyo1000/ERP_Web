@@ -1,4 +1,4 @@
-import { logoWrapper } from "../types"
+import { logoWrapper } from "../../../types"
 
 export default function LogoWrapper({
   viewBox,
