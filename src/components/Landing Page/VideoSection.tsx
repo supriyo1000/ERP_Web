@@ -32,7 +32,7 @@ export default forwardRef<HTMLDivElement, emptyProps>(function VideoSection(prop
 
   return (
 		<section id='main' className='w-full h-screen relative flex items-end' ref={ref}>
-			<video autoPlay loop muted playsInline src={videosection} className="absolute size-full z-[-1] object-cover" />
+			<video autoPlay disablePictureInPicture controlsList='nodownload' loop muted playsInline src={videosection} className="absolute size-full z-[-1] object-cover" />
 			{
 				messages.map((obj, ind) => {
 					return (

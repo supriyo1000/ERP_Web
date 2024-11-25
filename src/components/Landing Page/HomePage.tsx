@@ -4,7 +4,7 @@ import Navbar from "./Navbar"
 import GoToTop from "../GoToTop"
 import Footer from "../Footer"
 import sectionsInfo from "./sectiondata"
-import { NavbarHeightProvider } from "../../contexts/NavbarHeightContext"
+import NavHeightProvider from "../../contexts/NavHeightProvider"
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false)
@@ -33,13 +33,13 @@ export default function HomePage() {
   return (
     <main className="relative">
       <Navbar scrolled={scrolled} sectionRefs={refs} />
-      <NavbarHeightProvider>
+      <NavHeightProvider>
         {
           sectionsInfo.map((section, index) => {
             return <section.sectionComponent key={index} ref={refs[index]} />
           })
         }
-      </NavbarHeightProvider>
+      </NavHeightProvider>
       <GoToTop scrolled={scrolled} />
       <Footer />
     </main>

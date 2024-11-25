@@ -6,7 +6,7 @@ const Feature = lazy(() => import('./Features/Feature'))
 const InvalidPage = lazy(() => import('./InvalidPage'))
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import ThemeProvider from "../contexts/ThemeContext"
+import ThemeProvider from "../contexts/ThemeProvider"
 
 const router = createBrowserRouter([{
       path: '/',
@@ -17,7 +17,8 @@ const router = createBrowserRouter([{
       element: <Features />
     }, {
       path: '/features/:featureID',
-      element: <Feature />
+      element: <Feature />,
+      errorElement: <InvalidPage />
     }
   ], {
     future: {

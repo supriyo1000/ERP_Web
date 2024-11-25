@@ -2,41 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { NavLink } from "react-router-dom"
 import Navbar from "./Navbar"
 import Footer from "../Footer"
-
-const details = [{
-  featureID: "inventory-management",
-  title: "Inventory Management",
-  description: "Manage your stock levels, orders, and suppliers efficiently.",
-  }, {
-  featureID: "customer-relationship-management",
-  title: "Customer Relationship Management",
-  description: "Track and manage customer interactions and data throughout the customer lifecycle.",
-  }, {
-  featureID: "sales-analytics",
-  title: "Sales Analytics",
-  description: "Analyze sales data to make informed business decisions.",
-  }, {
-  featureID: "order-processing",
-  title: "Order Processing",
-  description: "Automate and streamline your order processing workflow.",
-  }, {
-  featureID: "financial-management",
-  title: "Financial Management",
-  description: "Manage your financial operations, including accounting, invoicing, and budgeting.",
-  }, {
-    featureID: "human-resources",
-    title: "Human Resources",
-    description: "Manage employee records, payroll, and benefits.",
-  }, {
-    featureID: "project-management",
-    title: "Project Management",
-    description: "Plan, execute, and monitor projects efficiently.",
-  }, {
-    featureID: "supply-chain-management",
-    title: "Supply Chain Management",
-    description: "Optimize your supply chain operations from procurement to delivery.",
-  }
-]
+import details from "./FeatureDetails"
 
 export default function Register() {
   useEffect(() => {
@@ -80,7 +46,7 @@ export default function Register() {
           value={searchValue}
           onChange={searchHandler}
           placeholder="What feature are you looking for?"
-          className="py-2 px-4 w-3/5 border border-gray-300 rounded-full"
+          className="py-2 px-8 w-3/5 border border-gray-300 rounded-full"
         />
       </div>
       {

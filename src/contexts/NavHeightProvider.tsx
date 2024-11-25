@@ -1,25 +1,21 @@
-// context/NavbarHeightContext.tsx
-import { createContext, useContext, useState, useEffect } from 'react';
-
-type NavbarHeightContextType = {
-  height: number;
-}
-
-const NavbarHeightContext = createContext<NavbarHeightContextType | undefined>(undefined);
-
-export const useNavbarHeight = () => {
-  const context = useContext(NavbarHeightContext);
-  if (!context) {
-    throw new Error('useNavbarHeight must be used within a NavbarHeightProvider');
-  }
-  return context;
-};
+import { useState, useEffect } from 'react';
+import { NavbarHeightContext } from './useNavbarHeight';
 
 type providerType = {
   children: React.ReactNode
 }
 
-export function NavbarHeightProvider({ children }: providerType) {
+/**
+ * NavHeightProvider is a context provider component that calculates and provides
+ * the height of the navbar to its children components. It uses the ResizeObserver
+ * API to monitor changes in the navbar's height and updates the context value accordingly.
+ * 
+ * @param {providerType} props - The props for the NavHeightProvider component.
+ * @param {React.ReactNode} props.children - The child components that will have access to the navbar height context.
+ * 
+ * @returns The provider component that wraps its children with the NavbarHeightContext.
+ */
+export default function NavHeightProvider({ children }: providerType) {
   const [height, setHeight] = useState<number>(0);
 
   useEffect(() => {
