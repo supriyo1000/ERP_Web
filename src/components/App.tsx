@@ -7,6 +7,7 @@ const InvalidPage = lazy(() => import('./InvalidPage'))
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ThemeProvider from "../contexts/ThemeProvider"
+import Pricing from './Prices/Pricing'
 
 const router = createBrowserRouter([{
       path: '/',
@@ -19,6 +20,9 @@ const router = createBrowserRouter([{
       path: '/features/:featureID',
       element: <Feature />,
       errorElement: <InvalidPage />
+    }, {
+      path: '/plans',
+      element: <Pricing />
     }
   ], {
     future: {

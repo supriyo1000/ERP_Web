@@ -37,7 +37,7 @@ export default function Register() {
     <main className="min-h-screen flex flex-col items-center gap-8 features-background">
       <Navbar />
       <div className="text-text section-header font-bold text-center">
-        Explore all of our features
+        Explore all of our featured apps
       </div>
       <div className="flex w-full items-center justify-center my-8">
         <input
@@ -46,7 +46,7 @@ export default function Register() {
           value={searchValue}
           onChange={searchHandler}
           placeholder="What feature are you looking for?"
-          className="py-2 px-8 w-3/5 border border-gray-300 rounded-full"
+          className="py-4 px-8 w-3/5 border border-gray-300 rounded-full"
         />
       </div>
       {
