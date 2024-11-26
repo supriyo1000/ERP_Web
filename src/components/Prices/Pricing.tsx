@@ -1,37 +1,88 @@
 import Navbar from "../Features/Navbar"
-import Checkbox from "./Checkbox"
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels"
-import { MdDragIndicator } from "react-icons/md"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import details from "../Features/FeatureDetails"
 
 export default function Pricing() {
   useEffect(() => {
     document.title = 'Plans and Pricing | eazzyBizz'
   })
+
+  const [openIndex, setOpenIndex] = useState<boolean>(false)
+  const toggleAccordion = () => {
+    setOpenIndex(prev => !prev)
+  }
+
+  const [checkedFeatures, setCheckedFeatures] = useState (
+    details.reduce((acc: { [key: string]: boolean }, curr) => {
+      acc[curr.featureID] = false;
+      return acc;
+    }, {})
+  )
+
+  const selectFeatures = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckedFeatures(prev => {
+      let newData = prev
+      newData[e.target.id] = !newData[e.target.id]
+      return newData
+    })
+    console.log(checkedFeatures)
+  }
+
+  useEffect(() => console.log(checkedFeatures), [checkedFeatures])
+  
   return (
-    <main className="h-screen flex flex-col features-background">
+    <main className="h-screen flex flex-col items-stretch">
       <Navbar />
-      <PanelGroup direction="horizontal" className="flex-grow">
-        <Panel defaultSize={25} className="">
-          <div className="overflow-y-auto overflow-x-hidden">
-            <div className="flex flex-col">
-              <div className="border-b-2 border-[#808080]">Sidebar</div>
-              <div className="flex-grow">
-                <Checkbox />
-                Hello
+      <div className="my-16 mx-8 text-text font-source-serif text-4xl text-center">
+        Select the apps you want to use in your platform
+      </div>
+      <div className=" mx-32 mt-4">
+        <div className="border-y transition-all">
+          <div
+            className={`flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 ${openIndex ? 'bg-gray-100' : ''}`}
+            onClick={() => toggleAccordion()}
+          >
+            <h3 className="text-lg font-semibold text-gray-800">
+              Select Apps to Customize Pricing (Hover to see details)
+            </h3>
+            <svg
+              className={`w-5 h-5 transition-transform ${openIndex ? 'rotate-180' : ''}`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 7l7 7 7-7" />
+            </svg>
+          </div>
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              openIndex ? 'max-h-[1000px]' : 'max-h-0'
+            }`}
+          >
+            <div className="p-4">
+              <div className="px-4 grid grid-cols-2 gap-4">
+                {
+                  details.map((detail, index) => (
+                    <label key={index} htmlFor={detail.featureID} className={`${checkedFeatures[detail.featureID] ? 'bg-cyan-500' : 'bg-gray-300'} py-2 px-4 cursor-pointer`}>
+                      <input
+                        type="checkbox"
+                        name="plans"
+                        checked={checkedFeatures[index]}
+                        onChange={selectFeatures}
+                        id={detail.featureID}
+                        className=""
+                      />
+                      <p>{detail.title}</p>
+                    </label>
+                  ))
+                }
               </div>
             </div>
           </div>
-        </Panel>
-        <PanelResizeHandle className="group/dragger w-1 bg-[#808080] hover:bg-white relative rounded-lg transition-all">
-          <MdDragIndicator className="group-hover/dragger:opacity-100 transition-all opacity-0 w-8 h-8 bg-white rounded-lg absolute z-40 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
-        </PanelResizeHandle>
-        <Panel className="">
-          <div className="overflow-y-auto overflow-x-hidden">
-            {/* Content */}
-          </div>
-        </Panel>
-      </PanelGroup>
+        </div>
+      </div>
     </main>
   )
 }

@@ -6,6 +6,7 @@ import { large } from '../../../windowSizes'
 import ThemeToggler from '../ThemeToggler'
 import useTheme from '../../contexts/useTheme'
 import { Link } from 'react-router-dom'
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export default function Navbar(props: navbar) {
 	const { theme } = useTheme()
@@ -42,45 +43,38 @@ export default function Navbar(props: navbar) {
 		})
 	})
 
-	/* On clicking sign in button this function will trigger */
-	const registerFn = () => {
-		// Write code here
-		console.log('Hello everybody!')
-	}
-
 	return (
 		<motion.nav id='navbar' animate={controls} className={`flex transition-colors items-center justify-between fixed z-[100] top-0 left-0 right-0 ${(props.scrolled || optionsClicked) ? 'text-text' : 'text-white'} px-8 py-4 select-none border-b-2 border-transparent`}>
-			<motion.div
-				whileHover={{
-					scale: 1.05,
-				}}
-				whileTap={{
-					scale: 0.9
-				}}
-			>
+			<div className='hover:scale-110 active:scale-90 transition-transform'>
 				<Link to='/' className='font-source-serif text-4xl font-bold'>
 					eazzyBizz
 				</Link>
-			</motion.div>
+			</div>
 			<div className="hidden lg:flex lg:items-center lg:gap-8 lg:px-8 lg:ml-auto">
 				{
 					sectionsInfo.map((section, index) => {
 						return (
-							<motion.div
-								whileTap={{scale: 0.9, transition: {duration: 0.1}}}
-								whileHover={{scale: 1.1, transition: {duration: 0.1}}}
+							<div
 								ref={largeScreenRefs[index]}
 								key={index}
-								className="text-xl py-2 transition-transform cursor-pointer"
+								className="text-xl py-2 transition-transform cursor-pointer hover:scale-110 active:scale-90 duration-200"
 							>
 								{section.name}
-							</motion.div>
+							</div>
 						)
 					})
 				}
+				<Link
+					to='/plans'
+					target='_blank'
+					className="text-xl py-2 transition-transform cursor-pointer hover:scale-110 active:scale-90 duration-200 flex items-center gap-2"
+				>
+					<div>Plans and Pricing</div>
+					<div><RxOpenInNewWindow /></div>
+				</Link>
 			</div>
 			<ThemeToggler />
-			<RegisterBtn registerFn={registerFn} />
+			<RegisterBtn />
 			<div
 				className='block lg:hidden text-2xl cursor-pointer hover:scale-110 transition-transform'
 				onClick={toggleOptions}
@@ -109,20 +103,15 @@ function Hamburger(props: hambrgrType) {
 	)
 }
 
-type registerProp = {
-	registerFn: () => void
-}
-
-function RegisterBtn(props: registerProp) {
+function RegisterBtn() {
 	return (
-		<motion.button
-			whileTap={{ scale: 0.9 }}
-			onClick={props.registerFn}
+		<div
+			className='mx-[5%] lg:mr-0 lg:ml-0 active:scale-90 transition-transform'
 		>
-			<Link to='/features' className='hidden md:block px-4 py-2 lg:p-4 lg:ml-0 mx-[5%] lg:mr-0 bg-slate-100 text-black border-black border-[1px] border-solid hover:bg-black hover:text-white hover:border-white transition-colors duration-300 capitalize'>
+			<Link to='/features' className='text-nowrap w-max hidden md:block px-4 py-2 lg:p-4 bg-slate-100 text-black border-black border-[1px] border-solid hover:bg-black hover:text-white hover:border-white transition-colors duration-300 capitalize'>
 				Get Started
 			</Link>
-		</motion.button>
+		</div>
 	)
 }
 
