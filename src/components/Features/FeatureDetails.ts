@@ -1,52 +1,116 @@
 import Dummy from "./Feature Sections/Dummy"
 
+/**
+ * Represents the details of a feature in the shopping website.
+ */
 type FeatureDetail = {
+  /**
+   * Unique identifier for the feature.
+   * @example "feature-123"
+   */
   featureID: string;
+
+  /**
+   * The name of the feature.
+   * @example "Premium Support"
+   */
   title: string;
+
+  /**
+   * A brief description of what the feature offers.
+   * @example "Provides 24/7 premium customer support."
+   */
   description: string;
-  sectionComponent: () => JSX.Element
+
+  /**
+   * A React component that renders the feature's section.
+   * @returns A JSX element representing the feature's section.
+   */
+  sectionComponent: () => JSX.Element;
+
+  /**
+   * Monthly price per user for the feature, in USD.
+   * @example 9.99
+   */
+  price_per_user_per_month: number;
+
+  /**
+   * Yearly price for the feature, in USD.
+   * @example 99.99
+   */
+  price_yearly: number;
+
+  /**
+   * Enterprise price for the feature, in USD.
+   * @example 999.99
+   */
+  price_enterprise: number;
 }
 
 const details: FeatureDetail[] = [{
     featureID: "inventory-management",
     title: "Inventory Management",
     description: "Manage your stock levels, orders, and suppliers efficiently.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "customer-relationship-management",
     title: "Customer Relationship Management",
     description: "Track and manage customer interactions and data throughout the customer lifecycle.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "sales-analytics",
     title: "Sales Analytics",
     description: "Analyze sales data to make informed business decisions.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "order-processing",
     title: "Order Processing",
     description: "Automate and streamline your order processing workflow.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "financial-management",
     title: "Financial Management",
     description: "Manage your financial operations, including accounting, invoicing, and budgeting.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "human-resources",
     title: "Human Resources",
     description: "Manage employee records, payroll, and benefits.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "project-management",
     title: "Project Management",
     description: "Plan, execute, and monitor projects efficiently.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }, {
     featureID: "supply-chain-management",
     title: "Supply Chain Management",
     description: "Optimize your supply chain operations from procurement to delivery.",
-    sectionComponent: Dummy
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
   }
 ]
 
