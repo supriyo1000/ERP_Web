@@ -25,7 +25,7 @@ export default function Pricing() {
   }
 
   return (
-    <main className="h-screen flex flex-col items-stretch gap-8">
+    <main className="min-h-screen flex flex-col items-stretch gap-8">
       <Navbar />
       <div className="mt-8 mx-8 text-text font-source-serif text-4xl text-center">
         Select the apps you want to use in your platform
