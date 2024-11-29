@@ -160,6 +160,19 @@ function MediumScreenOpts(props: msopts) {
 					)
 				})
 			}
+			<Link
+				to='/plans'
+				target='_blank'
+				className='pr-4 transition-all text-lg group/medopts flex items-center overflow-hidden cursor-pointer active:scale-90'
+			>
+				<div className='flex items-center overflow-hidden'>
+					<div className='-translate-x-full mx-0 transition-all group-hover/medopts:translate-x-0 group-hover/medopts:mx-4 opacity-0 group-hover/medopts:opacity-100'>→</div>
+					<div className='flex items-center gap-2'>
+						<div>Plans and Pricing</div>
+						<div><RxOpenInNewWindow /></div>
+					</div>
+				</div>
+			</Link>
 			<motion.div
 				whileTap={{scale: 0.9}}
 				className='pr-4 transition-all text-lg group/medopts flex md:hidden items-center overflow-hidden cursor-pointer'
