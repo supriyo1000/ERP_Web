@@ -1,3 +1,4 @@
+import ChatApp from "./Feature Sections/ChatApp";
 import Dummy from "./Feature Sections/Dummy"
 
 /**
@@ -48,17 +49,49 @@ type FeatureDetail = {
 }
 
 const details: FeatureDetail[] = [{
-    featureID: "inventory-management",
-    title: "Inventory Management",
-    description: "Manage your stock levels, orders, and suppliers efficiently.",
+    featureID: 'eazzyChat',
+    title: 'eazzyChat',
+    description: 'Enables real-time text and media communication between users.',
+    sectionComponent: ChatApp,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
+  }, {
+    featureID: "eazzy-crm",
+    title: "eazzyCRM",
+    description: "Track and manage customer interactions and data throughout the customer lifecycle.",
     sectionComponent: Dummy,
     price_per_user_per_month: 70,
     price_yearly: 12*70,
     price_enterprise: 999
   }, {
-    featureID: "customer-relationship-management",
-    title: "Customer Relationship Management",
-    description: "Track and manage customer interactions and data throughout the customer lifecycle.",
+    featureID: "eazzy-hr",
+    title: "eazzyHR",
+    description: "Manage employee records, payroll, and benefits.",
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
+  }, {
+    featureID: "eazzy-books",
+    title: "eazzyBooks",
+    description: "Automate and streamline your order processing workflow.",
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
+  }, {
+    featureID: "eazzy-manufacturing",
+    title: "eazzyManufacturing",
+    description: "Plan, execute, and monitor projects efficiently.",
+    sectionComponent: Dummy,
+    price_per_user_per_month: 70,
+    price_yearly: 12*70,
+    price_enterprise: 999
+  }, {
+    featureID: "inventory-management",
+    title: "Inventory Management",
+    description: "Manage your stock levels, orders, and suppliers efficiently.",
     sectionComponent: Dummy,
     price_per_user_per_month: 70,
     price_yearly: 12*70,
@@ -72,33 +105,9 @@ const details: FeatureDetail[] = [{
     price_yearly: 12*70,
     price_enterprise: 999
   }, {
-    featureID: "order-processing",
-    title: "Order Processing",
-    description: "Automate and streamline your order processing workflow.",
-    sectionComponent: Dummy,
-    price_per_user_per_month: 70,
-    price_yearly: 12*70,
-    price_enterprise: 999
-  }, {
     featureID: "financial-management",
     title: "Financial Management",
     description: "Manage your financial operations, including accounting, invoicing, and budgeting.",
-    sectionComponent: Dummy,
-    price_per_user_per_month: 70,
-    price_yearly: 12*70,
-    price_enterprise: 999
-  }, {
-    featureID: "human-resources",
-    title: "Human Resources",
-    description: "Manage employee records, payroll, and benefits.",
-    sectionComponent: Dummy,
-    price_per_user_per_month: 70,
-    price_yearly: 12*70,
-    price_enterprise: 999
-  }, {
-    featureID: "project-management",
-    title: "Project Management",
-    description: "Plan, execute, and monitor projects efficiently.",
     sectionComponent: Dummy,
     price_per_user_per_month: 70,
     price_yearly: 12*70,

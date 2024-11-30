@@ -34,19 +34,19 @@ export default function Register() {
     }
   }, [searchValue])
   return (
-    <main className="min-h-screen flex flex-col items-center gap-8 features-background">
+    <main className="min-h-screen flex flex-col items-center gap-16">
       <Navbar />
-      <div className="text-text section-header font-bold text-center">
+      <div className="mt-8 mx-8 text-text font-source-serif font-bold text-5xl text-center">
         Explore all of our featured apps
       </div>
-      <div className="flex w-full items-center justify-center my-8">
+      <div className="flex w-full items-center justify-center">
         <input
           type="text"
           ref={searchRef}
           value={searchValue}
           onChange={searchHandler}
           placeholder="What feature are you looking for?"
-          className="py-4 px-8 w-3/5 border border-gray-300 rounded-full"
+          className="py-2 px-4 md:py-4 md:px-8 w-4/5 md:w-3/5 border border-gray-300 rounded-full"
         />
       </div>
       {
@@ -57,7 +57,7 @@ export default function Register() {
               <p className="text-sm">Try searching with different keywords.</p>
             </div>
         ) : (
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/5 mb-auto">
+          <div className="grid gap-8 items-stretch md:grid-cols-2 lg:grid-cols-4 mx-[10%] sm:mx-[20%] md:mx-32 mb-auto">
             {
               viewableDetails.map((detail, index) => (
                 <NavLink
