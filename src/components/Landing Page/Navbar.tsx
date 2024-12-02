@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { navbar } from '../../types'
 import sectionsInfo from './sectiondata'
 import { large } from '../../../windowSizes'
-import ThemeToggler from '../ThemeToggler'
+import ThemeToggler from '../Utilities/ThemeToggler'
 import useTheme from '../../contexts/useTheme'
 import { Link } from 'react-router-dom'
 import { RxOpenInNewWindow } from "react-icons/rx";
@@ -23,8 +23,8 @@ export default function Navbar(props: navbar) {
 	const controls = useAnimation();
 	useEffect(() => {
 		controls.start({
-			borderColor: (props.scrolled || optionsClicked) ? '#808080ff' : '#80808000',
-			backgroundColor: (theme === 'dark') ? (props.scrolled || optionsClicked) ? '#030711ff' : '#03071100' : (props.scrolled || optionsClicked) ? '#fcf8eeff' : '#fcf8ee00',
+			borderBottomWidth: (props.scrolled || optionsClicked) ? '2px' : '0px',
+			backgroundImage: (theme === 'dark') ? (props.scrolled || optionsClicked) ? 'linear-gradient(#030711ff, #030711ff 75%)' : 'linear-gradient(#030711ff, #03071100 75%)' : (props.scrolled || optionsClicked) ? 'linear-gradient(#fcf8eeff, #fcf8eeff, 75%)' : 'linear-gradient(#030711ff, #03071100, 75%)',
 			transition: { duration: 0.2 },
 		});
 	}, [props.scrolled, optionsClicked, controls, theme])
@@ -44,7 +44,7 @@ export default function Navbar(props: navbar) {
 	})
 
 	return (
-		<motion.nav id='navbar' animate={controls} className={`flex transition-colors items-center justify-between fixed z-[100] top-0 left-0 right-0 ${(props.scrolled || optionsClicked) ? 'text-text' : 'text-white'} px-8 py-4 select-none border-b-2 border-transparent`}>
+		<motion.nav id='navbar' animate={controls} className={`flex transition-colors items-center justify-between fixed z-[100] top-0 left-0 right-0 ${(props.scrolled || optionsClicked) ? 'text-text' : 'text-white'} px-8 py-4 select-none border-[#808080]`}>
 			<div className='hover:scale-110 active:scale-90 transition-transform'>
 				<Link to='/' className='font-source-serif text-4xl font-bold'>
 					eazzyBizz
@@ -73,7 +73,7 @@ export default function Navbar(props: navbar) {
 					<div><RxOpenInNewWindow /></div>
 				</Link>
 			</div>
-			<ThemeToggler />
+			<ThemeToggler className='hidden md:block ml-auto lg:mr-[5%]' />
 			<RegisterBtn />
 			<div
 				className='block lg:hidden text-2xl cursor-pointer hover:scale-110 transition-transform'

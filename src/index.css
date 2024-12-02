@@ -156,42 +156,7 @@
     }
     
     .feature-grid {
-        @apply aspect-square w-full bg-cyan-500 flex flex-col gap-4 items-center justify-center rounded-xl text-center p-4 hover:scale-110 transition-all;
-    }
-
-
-    .checkbox-wrapper-3 input[type="checkbox"] {
-        @apply invisible hidden;
-    }
-
-    .checkbox-wrapper-3 .toggle {
-        @apply relative block size-full cursor-pointer transform-gpu translate-x-0 translate-y-0;
-        -webkit-tap-highlight-color: transparent;
-    }
-    .checkbox-wrapper-3 .toggle:before {
-        @apply content-[''] relative top-[0.15em] left-[0.15em] w-[1.7em] h-[0.7em] block bg-[#9a9999] rounded-[0.4em];
-        transition: background 0.2s ease;
-    }
-    .checkbox-wrapper-3 .toggle span {
-        @apply absolute top-0 left-0 size-[1em] block bg-white rounded-[0.5em];
-        box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
-        transition: all 0.2s ease;
-    }
-    .checkbox-wrapper-3 .toggle span:before {
-        @apply content-[''] absolute block -m-[0.9em] size-[2.8em] bg-[rgba(79,_46,_220,_0.5)] rounded-[50%] scale-0 opacity-100 pointer-events-none;
-    }
-
-    .checkbox-wrapper-3 #cbx-3:checked + .toggle:before {
-        @apply bg-[rgb(122,180,218)];
-    }
-    .checkbox-wrapper-3 #cbx-3:checked + .toggle span {
-        @apply bg-[rgb(46,165,220)] translate-x-[1em];
-        transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
-        box-shadow: 0 3px 8px rgba(46, 165, 220, 0.2);
-    }
-    .checkbox-wrapper-3 #cbx-3:checked + .toggle span:before {
-        @apply scale-100 opacity-0;
-        transition: all 0.4s ease;
+        @apply aspect-square w-full bg-cyan-500 flex flex-col gap-4 items-center justify-center rounded-xl text-center py-8 px-4 hover:scale-110 transition-all;
     }
 
     @keyframes animateGlow {

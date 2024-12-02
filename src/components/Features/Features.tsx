@@ -1,10 +1,22 @@
 import { useEffect, useRef, useState } from "react"
 import { NavLink } from "react-router-dom"
 import Navbar from "./Navbar"
-import Footer from "../Footer"
+import Footer from "../Utilities/Footer"
 import details from "./FeatureDetails"
+import GoToTop from "../Utilities/GoToTop"
 
-export default function Register() {
+export default function FeaturesList() {
+  const [scrolled, setScrolled] = useState(false)
+  const handleScroll = () => {
+    const scrollThreshold = window.innerHeight * 0.15; // 15% of viewport height
+    if (window.scrollY > scrollThreshold) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }
+  window.onscroll = handleScroll
+
   useEffect(() => {
     document.title = "List of all features | eazzyBizz"
   }, [])
@@ -57,7 +69,7 @@ export default function Register() {
               <p className="text-sm">Try searching with different keywords.</p>
             </div>
         ) : (
-          <div className="grid gap-8 items-stretch md:grid-cols-2 lg:grid-cols-4 mx-[10%] sm:mx-[20%] md:mx-32 mb-auto">
+          <div className="grid gap-8 items-stretch grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-8 sm:mx-[20%] md:mx-32 mb-auto">
             {
               viewableDetails.map((detail, index) => (
                 <NavLink
@@ -65,7 +77,7 @@ export default function Register() {
                   className="feature-grid"
                   key={index}
                 >
-                  <h1 className="text-2xl font-bold font-source-serif">{ detail.title }</h1>
+                  <h1 className="text-2xl font-bold font-source-serif break-words max-w-full hyphens-auto">{ detail.title }</h1>
                   <p>{ detail.description }</p>
                 </NavLink>
               ))
@@ -73,6 +85,7 @@ export default function Register() {
           </div>
         )
       }
+      <GoToTop scrolled={scrolled} />
       <Footer />
     </main>
   )

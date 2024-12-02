@@ -3,9 +3,21 @@ import { useEffect, useState } from "react"
 import details from "../Features/FeatureDetails"
 import FeaturesAccordion from "./FeaturesAccordion"
 import PlanSummary from "./PlanSummary"
-import Footer from "../Footer"
+import GoToTop from "../Utilities/GoToTop"
+import Footer from "../Utilities/Footer"
 
 export default function Pricing() {
+  const [scrolled, setScrolled] = useState(false)
+  const handleScroll = () => {
+    const scrollThreshold = window.innerHeight * 0.15; // 15% of viewport height
+    if (window.scrollY > scrollThreshold) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }
+  window.onscroll = handleScroll
+
   useEffect(() => {
     document.title = 'Plans and Pricing | eazzyBizz'
   })
@@ -32,6 +44,7 @@ export default function Pricing() {
       </div>
       <FeaturesAccordion checkedFeatures={checkedFeatures} selectFeatures={selectFeatures} />
       <PlanSummary checkedFeatures={checkedFeatures} />
+      <GoToTop scrolled={scrolled} />
       <Footer />
     </main>
   )

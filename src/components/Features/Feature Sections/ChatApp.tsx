@@ -1,5 +1,5 @@
 import Navbar from "../Navbar"
-import Footer from "../../Footer"
+import Footer from "../../Utilities/Footer"
 // import { useEffect } from "react"
 // import { useNavigation } from 'react-router-dom'
 

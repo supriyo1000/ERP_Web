@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 
 import Navbar from "./Navbar"
-import GoToTop from "../GoToTop"
-import Footer from "../Footer"
+import GoToTop from "../Utilities/GoToTop"
+import Footer from "../Utilities/Footer"
 import sectionsInfo from "./sectiondata"
 import NavHeightProvider from "../../contexts/NavHeightProvider"
 

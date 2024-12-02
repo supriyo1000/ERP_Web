@@ -64,9 +64,9 @@ export default function FeaturesAccordion(props: FeaturesAccordionProps) {
                   <label
                     key={index}
                     htmlFor={detail.featureID}
-                    className={`transition-all flex flex-col items-center justify-center select-none ${openIndex ? 'pointer-events-auto' : 'pointer-events-none'} bg-gray-200 [&:has(input:checked)]:bg-cyan-400 py-4 px-8 cursor-pointer [&:has(input:focus-visible:not(checked))]:bg-gray-300 [&:has(input:focus-visible:checked)]:bg-cyan-500 [&:has(input:focus-visible)]:scale-[1.02] hover:bg-gray-300 [&:hover:has(input:checked)]:bg-cyan-500 hover:scale-[1.02] active:scale-[0.98]`}
+                    className={`transition-all flex flex-col items-center justify-center select-none ${openIndex ? 'pointer-events-auto' : 'pointer-events-none'} bg-gray-200 [&:has(input:checked)]:bg-cyan-400 py-4 px-4 lg:px-8 cursor-pointer [&:has(input:focus-visible:not(checked))]:bg-gray-300 [&:has(input:focus-visible:checked)]:bg-cyan-500 [&:has(input:focus-visible)]:scale-[1.02] hover:bg-gray-300 [&:hover:has(input:checked)]:bg-cyan-500 hover:scale-[1.02] active:scale-[0.98]`}
                     onClick={() => props.selectFeatures(detail.featureID)}
-                    onContextMenu={(e) => {e.preventDefault(); console.log(detail.description)}}
+                    // onContextMenu={(e) => {e.preventDefault(); console.log(detail.description)}}
                   >
                     <input
                       type="checkbox"
@@ -76,7 +76,7 @@ export default function FeaturesAccordion(props: FeaturesAccordionProps) {
                       id={detail.featureID}
                       className="absolute scale-0 opacity-0 -z-50"
                     />
-                    <p className="text-center">{detail.title}</p>
+                    <p className="text-center max-w-full break-words hyphens-auto">{detail.title}</p>
                   </label>
                 ))
               }
