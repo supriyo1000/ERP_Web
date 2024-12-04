@@ -4,6 +4,8 @@ const HomePage = lazy(() => import('./Landing Page/HomePage'))
 const Features = lazy(() => import('./Features/Features'))
 const Feature = lazy(() => import('./Features/Feature'))
 const InvalidPage = lazy(() => import('./Utilities/InvalidPage'))
+const SignIn = lazy(() => import('./Sign In/SignIn'))
+const Dashboard = lazy(() => import('./Dashboard/Dashboard'))
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ThemeProvider from "../contexts/ThemeProvider"
@@ -23,6 +25,12 @@ const router = createBrowserRouter([{
     }, {
       path: '/plans',
       element: <Pricing />
+    }, {
+      path: '/signin',
+      element: <SignIn />
+    }, {
+      path: '/dashboard',
+      element: <Dashboard />,
     }
   ], {
     future: {

@@ -32,3 +32,12 @@ export type windowSizesType = {
   value: number,
   valInPx: string
 }
+
+type User = AuthContextType | null
+
+interface AuthContextType {
+  isAuthenticated: boolean;
+  id: string,
+  displayName?: string,
+  profilePic?: string
+}
