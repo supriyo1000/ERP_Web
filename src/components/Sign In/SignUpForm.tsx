@@ -2,11 +2,8 @@ import { Link } from 'react-router-dom'
 
 export default function SignUpForm() {
   return (
-    <form action="" className="overflow-hidden flex flex-col items-center justify-center gap-8 p-8">
+    <form action="" className="size-full overflow-hidden flex flex-col items-center justify-center gap-8 p-8">
       <div className='text-center'>
-        <Link to='/' className='font-source-serif text-4xl font-bold'>
-          eazzyBizz
-        </Link>
         <div className='mt-2'>Register yourself</div>
       </div>
       <div className="relative w-1/2 border-b-2 has-[>input[value='']]:border-green-400 has-[>input:focus]:border-cyan-400 has-[>input:invalid]:border-orange-400 has-[>input:not(:placeholder-shown)]:border-cyan-400 has-[>input:invalid:not(:placeholder-shown)]:border-orange-400">
