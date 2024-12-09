@@ -1,72 +1,37 @@
 import Navbar from "../Navbar"
+import ChatappSVG2 from "./ChatappSVG2"
+import { FaArrowRightLong } from "react-icons/fa6";
 import Footer from "../../Utilities/Footer"
 // import { useEffect } from "react"
-// import { useNavigation } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 export default function ChatApp() {
   // useEffect(() => {
   //   window.location.href = 'https://www.google.com/'
   // })
   return (
-    <main className="min-h-screen flex flex-col items-center gap-16 [&>:nth-last-child(2)]:mb-auto">
-      <Navbar />
-      <div className="mt-8 mx-8 text-text font-source-serif text-4xl text-center">
-        eazzyChat
-      </div>
-      <form action="" className="flex flex-col w-1/2 items-center gap-8 p-8 border-text rounded-3xl">
-        <div className="relative w-4/5 border-b-2 has-[>input[value='']]:border-green-400 has-[>input:focus]:border-cyan-400 has-[>input:invalid]:border-orange-400 has-[>input:not(:placeholder-shown)]:border-cyan-400 has-[>input:invalid:not(:placeholder-shown)]:border-orange-400">
-          <label
-            htmlFor="username"
-            className="absolute top-1/2 -translate-y-1/2 left-2 text-text pointer-events-none transition-all duration-150 ease-[ease] has-[~input:focus]:top-1 has-[~input:focus]:-translate-y-[120%] has-[~input:focus]:left-0 has-[~input:focus]:text-sm has-[~input:not(:placeholder-shown)]:top-1 has-[~input:not(:placeholder-shown)]:-translate-y-[120%] has-[~input:not(:placeholder-shown)]:left-0 has-[~input:not(:placeholder-shown)]:text-sm"
+    <main className="min-h-screen flex flex-col items-stretch [&>:nth-last-child(2)]:mb-auto">
+      <section className="h-screen bg-gradient-to-r from-indigo-600 to-blue-600 text-white flex">
+        <div className="md:w-[50%] h-full flex flex-col gap-8 justify-end pb-[8%] px-[8%] md:pr-0 lg:pb-[12%] lg:pl-[16%]">
+          <h1 className="text-6xl font-extrabold font-source-serif mb-8">eazzyChat</h1>
+          <div>
+            <p className="text-3xl">
+              Effortless Communication for Businesses, Anytime, Anywhere
+            </p>
+            <p className="mt-2 text-[#ddd]">Communication without the cost. Just sign up and start chatting!</p>
+          </div>
+          <button
+            onClick={() => window.location.href='http://192.168.1.4:3000/login'}
+            className="px-4 w-max py-2 flex duration-[150ms] ease-in-out items-center gap-2 border-2 border-teal-600 bg-teal-600 shadow-md shadow-black/20 hover:scale-105 hover:bg-teal-900 hover:shadow-lg hover:shadow-black/30"
           >
-            Enter your username
-          </label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter your username"
-            className="w-full focus:outline-none px-2 py-1 bg-transparent text-text placeholder:text-transparent"
-            required
-          />
+            <p>Try eazzyChat Now</p>
+            <FaArrowRightLong />
+          </button>
         </div>
-        <div className="relative w-4/5 border-b-2 has-[>input[value='']]:border-green-400 has-[>input:focus]:border-cyan-400 has-[>input:invalid]:border-orange-400 has-[>input:not(:placeholder-shown)]:border-cyan-400 has-[>input:invalid:not(:placeholder-shown)]:border-orange-400">
-          <label
-            htmlFor="password"
-            className="absolute top-1/2 -translate-y-1/2 left-2 text-text pointer-events-none transition-all duration-150 ease-[ease] has-[~input:focus]:top-1 has-[~input:focus]:-translate-y-[120%] has-[~input:focus]:left-0 has-[~input:focus]:text-sm has-[~input:not(:placeholder-shown)]:top-1 has-[~input:not(:placeholder-shown)]:-translate-y-[120%] has-[~input:not(:placeholder-shown)]:left-0 has-[~input:not(:placeholder-shown)]:text-sm"
-          >
-            Enter your password
-          </label>
-          <input
-            type="text"
-            name="password"
-            id="password"
-            placeholder="Enter your password"
-            className="w-full focus:outline-none px-2 py-1 bg-transparent text-text placeholder:text-transparent"
-            required
-          />
+        <div className="w-1/2">
+          <ChatappSVG2 />
         </div>
-        <div className="relative w-4/5 border-b-2 has-[>input[value='']]:border-green-400 has-[>input:focus]:border-cyan-400 has-[>input:invalid]:border-orange-400 has-[>input:not(:placeholder-shown)]:border-cyan-400 has-[>input:invalid:not(:placeholder-shown)]:border-orange-400">
-          <label
-            htmlFor="confirm-password"
-            className="absolute top-1/2 -translate-y-1/2 left-2 text-text pointer-events-none transition-all duration-150 ease-[ease] has-[~input:focus]:top-1 has-[~input:focus]:-translate-y-[120%] has-[~input:focus]:left-0 has-[~input:focus]:text-sm has-[~input:not(:placeholder-shown)]:top-1 has-[~input:not(:placeholder-shown)]:-translate-y-[120%] has-[~input:not(:placeholder-shown)]:left-0 has-[~input:not(:placeholder-shown)]:text-sm"
-          >
-            Confirm password
-          </label>
-          <input
-            type="text"
-            name="confirm-password"
-            id="confirm-password"
-            placeholder="Confirm password"
-            className="w-full focus:outline-none px-2 py-1 bg-transparent text-text placeholder:text-transparent"
-            required
-          />
-        </div>
-        <button className="p-4 *:font-source-serif border-2 rounded-2xl border-text text-text shadow-md ">
-          <p className="text-lg">Get Started for Free</p>
-          <p className="text-sm text-gray-400">(Trial ends on 14 days)</p>
-        </button>
-      </form>
+      </section>
       <Footer />
     </main>
   )
