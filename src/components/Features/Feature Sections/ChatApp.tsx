@@ -1,5 +1,5 @@
 import Navbar from "../Navbar"
-import ChatappSVG2 from "./ChatappSVG2"
+import ChatappSVG from "./ChatappSVG"
 import { FaArrowRightLong } from "react-icons/fa6";
 import Footer from "../../Utilities/Footer"
 // import { useEffect } from "react"
@@ -21,15 +21,15 @@ export default function ChatApp() {
             <p className="mt-2 text-[#ddd]">Communication without the cost. Just sign up and start chatting!</p>
           </div>
           <button
-            onClick={() => window.location.href='http://192.168.1.4:3000/login'}
+            onClick={() => window.location.href=import.meta.env.VITE_EAZZYCHAT_URL}
             className="px-4 w-max py-2 flex duration-[150ms] ease-in-out items-center gap-2 border-2 border-teal-600 bg-teal-600 shadow-md shadow-black/20 hover:scale-105 hover:bg-teal-900 hover:shadow-lg hover:shadow-black/30"
           >
             <p>Try eazzyChat Now</p>
             <FaArrowRightLong />
           </button>
         </div>
-        <div className="w-1/2">
-          <ChatappSVG2 />
+        <div className="hidden md:block w-1/2">
+          <ChatappSVG />
         </div>
       </section>
       <Footer />
